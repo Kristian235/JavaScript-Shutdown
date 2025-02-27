@@ -1,0 +1,98 @@
+/*body*/
+body {
+  background-color: black;
+}
+
+/*Title*/
+h1{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  font-family: 'Courier New', Courier, monospace;
+  color: #00e673;
+}
+
+/*Container*/
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Loading Circle*/
+.loader {
+  width: 150px;
+  aspect-ratio: 1;
+  display: grid;
+  color: #00e673;
+  background: radial-gradient(farthest-side, currentColor calc(100% - 12px), #0000 calc(100% - 5px) 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 30px), #000 calc(100% - 12px));
+  border-radius: 50%;
+  animation: l19 2s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  background:
+    linear-gradient(currentColor 0 0) center,
+    linear-gradient(currentColor 0 0) center;
+  background-size: 100% 30px, 30px 100%;
+  background-repeat: no-repeat;
+}
+
+.loader::after {
+  transform: rotate(45deg);
+}
+
+@keyframes l19 {
+  100% {
+    transform: rotate(1turn)
+  }
+}
+
+/*Timer*/
+.timer{
+  font-family: monospace;
+  font-weight: 900;
+  font-size: 7em;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#00e673;
+}
+
+/*Circle after loading*/
+@keyframes smooth-appear {
+  to{
+    bottom: 210px;
+    opacity:1;
+  }
+}
+
+.dot{
+  height: 100px;
+  width: 400px;
+  background: linear-gradient(#00e673,#3e4843);
+  border-radius: 10% / 30px;
+  position: fixed;
+  bottom: -110%;
+  opacity:0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  animation: smooth-appear 1s ease forwards;
+}
+
+.dot p{
+  color: black;
+  text-align: center;
+  font-size: 2em;
+  font-family: sans-serif;
+  font-weight: 500;
+}
